@@ -375,7 +375,7 @@ if [[ ${ENABLE} == "true" ]]; then
   else
     echo "BANNER_PATH = ${BANNER_PATH}"
     echo "Creating Banner in ${BANNER_FILE}"
-    aws s3 cp "${BANNER_PATH}" "${BANNER_FILE}"  --region ${BANNER_REGION}
+    wget -nv -O "/etc/ssh_banner" "${BANNER_PATH}"
     if [[ -e ${BANNER_FILE} ]]; then
       echo "[INFO] Installing banner..."
       echo -e "\n Banner ${BANNER_FILE}" >>/etc/ssh/sshd_config
